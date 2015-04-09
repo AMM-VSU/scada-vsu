@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<TableView title="Серверная">
+  <Param cnlNum="241">t4</Param>
+  <Param cnlNum="246">t4_min</Param>
+  <Param cnlNum="244">t4_max</Param>
+  <Param />
+  <Param cnlNum="242">t5</Param>
+  <Param cnlNum="247">t5_min</Param>
+  <Param cnlNum="245">t5_max</Param>
+  <Param />
+  <Param cnlNum="243">t средняя</Param>
+</TableView>

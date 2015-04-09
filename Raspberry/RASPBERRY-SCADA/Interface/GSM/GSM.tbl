@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<TableView title="GSM контроль">
+  <Param>SMS-центр</Param>
+  <Param cnlNum="201">Связь</Param>
+  <Param cnlNum="202">SMS</Param>
+  <Param cnlNum="203">AT-команда</Param>
+  <Param />
+  <Param>Коттедж</Param>
+  <Param cnlNum="211">Кол-во событий</Param>
+  <Param cnlNum="212">Охрана</Param>
+  <Param cnlNum="213">Вход</Param>
+  <Param cnlNum="214">Холл</Param>
+  <Param cnlNum="215">Возгорание</Param>
+  <Param />
+  <Param>Автомобиль</Param>
+  <Param cnlNum="221">Кол-во событий</Param>
+  <Param cnlNum="222">Охрана</Param>
+  <Param cnlNum="223">Удар</Param>
+  <Param cnlNum="224">Салон</Param>
+  <Param cnlNum="225">Аккумулятор</Param>
+  <Param />
+  <Param>Сотрудник</Param>
+  <Param cnlNum="231">SMS</Param>
+</TableView>

@@ -1,0 +1,2425 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ScadaData</name>
+    </assembly>
+    <members>
+        <member name="T:Scada.Client.BaseView">
+            <summary>
+            The base class for view
+            <para>Базовый класс представления</para>
+            </summary>
+        </member>
+        <member name="M:Scada.Client.BaseView.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Client.BaseView.AddCnlNum(System.Int32)">
+            <summary>
+            Добавить номер входного канала в список, сохраняя упорядоченность и уникальность его элементов
+            </summary>
+        </member>
+        <member name="M:Scada.Client.BaseView.AddCtrlCnlNum(System.Int32)">
+            <summary>
+            Добавить номер канала управления в список, сохраняя упорядоченность и уникальность его элементов
+            </summary>
+        </member>
+        <member name="M:Scada.Client.BaseView.LoadFromStream(System.IO.Stream)">
+            <summary>
+            Загрузить представление из потока
+            </summary>
+        </member>
+        <member name="M:Scada.Client.BaseView.BindCnlProps(Scada.Client.CnlProps[])">
+            <summary>
+            Привязать свойства входных каналов к элементам представления
+            </summary>
+        </member>
+        <member name="M:Scada.Client.BaseView.Clear">
+            <summary>
+            Очистить представление
+            </summary>
+        </member>
+        <member name="P:Scada.Client.BaseView.Title">
+            <summary>
+            Получить заголовок представления
+            </summary>
+        </member>
+        <member name="P:Scada.Client.BaseView.ItfObjName">
+            <summary>
+            Получить или установить наименование объекта интерфейса
+            </summary>
+        </member>
+        <member name="P:Scada.Client.BaseView.CnlList">
+            <summary>
+            Получить упорядоченный без повторений список номеров входных каналов, 
+            которые используются в представлении
+            </summary>
+        </member>
+        <member name="P:Scada.Client.BaseView.CtrlCnlList">
+            <summary>
+            Получить упорядоченный без повторений список номеров каналов управления, 
+            которые используются в представлении
+            </summary>
+        </member>
+        <member name="P:Scada.Client.BaseView.StoredOnServer">
+            <summary>
+            Получить признак хранения файла представления на сервере (в директории интерфейса)
+            </summary>
+        </member>
+        <member name="T:Scada.Client.CnlProps">
+            <summary>
+            Input channel properties
+            <para>Свойства входного канала</para>
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CnlProps.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CnlProps.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CnlProps.CompareTo(System.Object)">
+            <summary>
+            Compares the current instance with another object of the same type
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.CnlNum">
+            <summary>
+            Получить или установить номер входного канала
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.CnlName">
+            <summary>
+            Получить или установить наименование входного канала
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.ObjNum">
+            <summary>
+            Получить или установить номер объекта
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.ObjName">
+            <summary>
+            Получить или установить наименование объекта
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.KPNum">
+            <summary>
+            Получить или установить номер КП
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.KPName">
+            <summary>
+            Получить или установить наименование КП
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.IconFileName">
+            <summary>
+            Получить или установить короткое имя файла значка
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.ParamName">
+            <summary>
+            Получить или установить наименование параметра
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.ShowNumber">
+            <summary>
+            Получить или установить признак вывода значения канала как числа
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.DecDigits">
+            <summary>
+            Получить или установить количество знаков дробной части при выводе значения
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.UnitArr">
+            <summary>
+            Получить или установить размерности
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.CtrlCnlNum">
+            <summary>
+            Получить или установить номер канала управления
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CnlProps.EvSound">
+            <summary>
+            Получить или установить признак звука события
+            </summary>
+        </member>
+        <member name="T:Scada.Client.CommSettings">
+            <summary>
+            SCADA-Server connection settings
+            <para>Настройки соединения со SCADA-Сервером</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Client.CommSettings.DefFileName">
+            <summary>
+            Имя файла настроек соединения со SCADA-Сервером по умолчанию
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.#ctor(System.String,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            Конструктор с установкой параметров связи
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.SetToDefault">
+            <summary>
+            Установить значения настроек по умолчанию
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.Equals(Scada.Client.CommSettings)">
+            <summary>
+            Определить, являются ли заданные параметры связи идентичными текущим параметрам
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.Clone">
+            <summary>
+            Создать копию настроек соединения со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.LoadFromFile(System.String,System.String@)">
+            <summary>
+            Загрузить настройки соединения со SCADA-Сервером из файла
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.LoadFromFile(System.String,Utils.Log)">
+            <summary>
+            Загрузить настройки соединения со SCADA-Сервером из файла
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CommSettings.SaveToFile(System.String,System.String@)">
+            <summary>
+            Сохранить настройки соединения со SCADA-Сервером в файле
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CommSettings.ServerHost">
+            <summary>
+            Получить или установить имя компьютера или IP-адрес SCADA-Сервера
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CommSettings.ServerPort">
+            <summary>
+            Получить или установить номер TCP-порта SCADA-Сервера
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CommSettings.ServerUser">
+            <summary>
+            Получить или установить имя пользователя для подключения к SCADA-Серверу
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CommSettings.ServerPwd">
+            <summary>
+            Получить или установить пароль пользователя для подключения к SCADA-Серверу
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CommSettings.ServerTimeout">
+            <summary>
+            Получить или установить таймаут ожидания ответа SCADA-Сервера, мс
+            </summary>
+        </member>
+        <member name="T:Scada.Client.CtrlCnlProps">
+            <summary>
+            Output channel properties
+            <para>Свойства канала управления</para>
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CtrlCnlProps.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Client.CtrlCnlProps.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.CtrlCnlNum">
+            <summary>
+            Получить или установить номер канала управления
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.CtrlCnlName">
+            <summary>
+            Получить или установить наименование канала управления
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.ObjNum">
+            <summary>
+            Получить или установить номер объекта
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.ObjName">
+            <summary>
+            Получить или установить наименование объекта
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.KPNum">
+            <summary>
+            Получить или установить номер КП
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.KPName">
+            <summary>
+            Получить или установить наименование КП
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.CmdTypeID">
+            <summary>
+            Получить или установить идентификатор типа команды
+            </summary>
+        </member>
+        <member name="P:Scada.Client.CtrlCnlProps.CmdValArr">
+            <summary>
+            Получить или установить значения команды
+            </summary>
+        </member>
+        <member name="T:Scada.Client.ServerComm">
+            <summary>
+            Communication with SCADA-Server
+            <para>Обмен данными со SCADA-Сервером</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.TcpSendTimeout">
+            <summary>
+            Таймаут отправки данных по TCP, мс
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.TcpReceiveTimeout">
+            <summary>
+            Таймаут приёма данных по TCP, мс
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.ConnectSpan">
+            <summary>
+            Интервал повторных попыток соединения
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.PingSpan">
+            <summary>
+            Интервал проверки соединения путём запроса состояния сервера
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.commSettings">
+            <summary>
+            Настройки соединения со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.log">
+            <summary>
+            Журнал работы
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.tcpClient">
+            <summary>
+            TCP-клиент для обмена данными со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.netStream">
+            <summary>
+            Поток данных TCP-клиента
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.tcpLock">
+            <summary>
+            Объект для синхронизации обмена данными со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.commState">
+            <summary>
+            Состояние обмена данными со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.serverVersion">
+            <summary>
+            Версия SCADA-Сервера
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.restConnSuccDT">
+            <summary>
+            Время успешного вызова метода восстановления соединения
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.restConnErrDT">
+            <summary>
+            Время неудачного вызова метода восстановления соединения
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.errMsg">
+            <summary>
+            Сообщение об ошибке
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.#ctor(Scada.Client.CommSettings)">
+            <summary>
+            Конструктор с установкой настроек соединения со SCADA-Сервером
+            </summary>
+            <remarks>Используется журнал работы Scada.Client.AppData.Log</remarks>
+        </member>
+        <member name="M:Scada.Client.ServerComm.#ctor(Scada.Client.CommSettings,Utils.Log)">
+            <summary>
+            Конструктор с установкой настроек соединения со SCADA-Сервером и журнала работы
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.#ctor(Scada.Client.CommSettings,Scada.Client.ServerComm.WriteToLogDelegate)">
+            <summary>
+            Конструктор с установкой настроек соединения со SCADA-Сервером и метода записи в журнал работы
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.CheckDataFormat(System.Byte[],System.Int32)">
+            <summary>
+            Проверить формат данных для заданной команды при связи со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.CheckDataFormat(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Проверить формат данных для заданной команды при связи со SCADA-Сервером, указав используемую длину буфера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.DirToString(Scada.Client.ServerComm.Dirs)">
+            <summary>
+            Получить строковое обозначение директории на SCADA-Сервере
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.WriteAction(System.String,Utils.Log.ActTypes)">
+            <summary>
+            Записать действие в журнал работы
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.Connect">
+            <summary>
+            Установить соединение со SCADA-Сервером и произвести авторизацию
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.Disconnect">
+            <summary>
+            Разорвать соединение со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReadNetStream(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Считать информацию из потока данных TCP-клиента
+            </summary>
+            <remarks>Метод используется для считывания "большого" объёма данных</remarks>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ClearNetStream">
+            <summary>
+            Очистить поток данных TCP-клиента
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.RestoreConnection">
+            <summary>
+            Восстановить соединение со SCADA-Сервером и произвести авторизацию при необходимости
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.RestoreReceiveTimeout">
+            <summary>
+            Восстановить значение таймаута приёма данных через TCP по умолчанию
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveFile(Scada.Client.ServerComm.Dirs,System.String,System.IO.Stream)">
+            <summary>
+            Принять файл от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendCommand(System.Int32,System.Int32,System.Double,System.Byte[],System.Int32,System.Boolean@)">
+            <summary>
+            Отправить команду ТУ SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.CheckUser(System.String,System.String,System.Int32@)">
+            <summary>
+            Запросить правильность имени и пароля пользователя от SCADA-Сервера, получить его роль.
+            Возвращает успешность выполнения запроса
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveBaseTable(System.String,System.Data.DataTable)">
+            <summary>
+            Принять таблицу базы конфигурации от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveSrezTable(System.String,Scada.Data.SrezTableLight)">
+            <summary>
+            Принять таблицу срезов от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveTrend(System.String,System.DateTime,Scada.Data.Trend)">
+            <summary>
+            Принять тренд входного канала от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveEventTable(System.String,Scada.Data.EventTableLight)">
+            <summary>
+            Принять таблицу событий от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveView(System.String,Scada.Client.BaseView)">
+            <summary>
+            Принять представление от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveItfObj(System.String,System.IO.Stream)">
+            <summary>
+            Принять объект интерфейса от SCADA-Сервера
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveFileAge(Scada.Client.ServerComm.Dirs,System.String)">
+            <summary>
+            Принять дату и время изменения файла от SCADA-Сервера.
+            В случае отсутствия файла возвращается минимальная дата
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendStandardCommand(System.Int32,System.Int32,System.Double,System.Boolean@)">
+            <summary>
+            Отправить стандартную команду ТУ SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendBinaryCommand(System.Int32,System.Int32,System.Byte[],System.Boolean@)">
+            <summary>
+            Отправить бинарную команду ТУ SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendRequestCommand(System.Int32,System.Int32,System.Int32,System.Boolean@)">
+            <summary>
+            Отправить команду внеочередного опроса КП SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.ReceiveCommand(System.Int32@,System.Int32@,System.Double@,System.Byte[]@)">
+            <summary>
+            Принять команду ТУ от SCADA-Сервера
+            </summary>
+            <remarks>
+            Для стандартной команды возвращаемые данные команды равны null.
+            Для бинарной команды возвращаемое значение команды равно double.NaN.
+            Для команды опроса КП возвращаемое значение команды равно double.NaN и данные команды равны null.</remarks>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendSrez(Scada.Data.SrezTableLight.Srez,System.Boolean@)">
+            <summary>
+            Отправить текущий срез SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendArchive(Scada.Data.SrezTableLight.Srez,System.Boolean@)">
+            <summary>
+            Отправить архивный срез SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.SendEvent(Scada.Data.EventTableLight.Event,System.Boolean@)">
+            <summary>
+            Отправить событие SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.CheckEvent(System.Int32,System.DateTime,System.Int32,System.Boolean@)">
+            <summary>
+            Отправить команду квитирования события SCADA-Серверу
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.Close">
+            <summary>
+            Завершить работу со SCADA-Сервером и освободить ресурсы
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.GetRole(System.Int32)">
+            <summary>
+            Получить роль пользователя по её идентификатору
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.GetRoleName(System.Int32)">
+            <summary>
+            Получить наименование роли по её идентификатору
+            </summary>
+        </member>
+        <member name="M:Scada.Client.ServerComm.GetRoleName(Scada.Client.ServerComm.Roles)">
+            <summary>
+            Получить наименование роли
+            </summary>
+        </member>
+        <member name="P:Scada.Client.ServerComm.writeToLog">
+            <summary>
+            Метод записи в журнал работы
+            </summary>
+        </member>
+        <member name="P:Scada.Client.ServerComm.CommSettings">
+            <summary>
+            Получить настройки соединения со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="P:Scada.Client.ServerComm.CommState">
+            <summary>
+            Получить состояние обмена данными со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="P:Scada.Client.ServerComm.CommStateDescr">
+            <summary>
+            Получить описание состояния обмена данными со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="P:Scada.Client.ServerComm.ErrMsg">
+            <summary>
+            Получить сообщение об ошибке
+            </summary>
+        </member>
+        <member name="T:Scada.Client.ServerComm.CommStates">
+            <summary>
+            Состояния обмена данными со SCADA-Сервером
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.CommStates.Disconnected">
+            <summary>
+            Соединение не установлено
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.CommStates.Connected">
+            <summary>
+            Соединение установлено
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.CommStates.Authorized">
+            <summary>
+            Соединение установлено и программа авторизована
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.CommStates.NotReady">
+            <summary>
+            SCADA-Сервер не готов
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.CommStates.Error">
+            <summary>
+            Ошибка обмена данными
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.CommStates.WaitResponse">
+            <summary>
+            Ожидание ответа на команду или запрос
+            </summary>
+        </member>
+        <member name="T:Scada.Client.ServerComm.Roles">
+            <summary>
+            Роли пользователей
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.Disabled">
+            <summary>
+            Отключен
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.Admin">
+            <summary>
+            Администратор
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.Dispatcher">
+            <summary>
+            Диспетчер
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.Guest">
+            <summary>
+            Гость
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.App">
+            <summary>
+            Приложение
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.Custom">
+            <summary>
+            Настраиваемая роль
+            </summary>
+            <remarks>Минимальный идентификатор настраиваемой роли равен 0x0B</remarks>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Roles.Err">
+            <summary>
+            Ошибка (неверное имя пользователя или пароль)
+            </summary>
+        </member>
+        <member name="T:Scada.Client.ServerComm.Dirs">
+            <summary>
+            Директории на SCADA-Сервере
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Dirs.Cur">
+            <summary>
+            Директория текущего среза
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Dirs.Hour">
+            <summary>
+            Директория часовых срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Dirs.Min">
+            <summary>
+            Директория минутных срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Dirs.Events">
+            <summary>
+            Директория событий
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Dirs.BaseDAT">
+            <summary>
+            Директория базы конфигурации в формате DAT
+            </summary>
+        </member>
+        <member name="F:Scada.Client.ServerComm.Dirs.Itf">
+            <summary>
+            Директория интерфейса (таблиц, схем и т.п.)
+            </summary>
+        </member>
+        <member name="T:Scada.Client.ServerComm.WriteToLogDelegate">
+            <summary>
+            Делегат записи в журнал работы
+            </summary>
+        </member>
+        <member name="T:Scada.Data.Arithmetic">
+            <summary>
+            Auxiliary math calculations
+            <para>Вспомогательные математические расчёты</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Arithmetic.DelphiTimeBegin">
+            <summary>
+            Начало отсчёта времени в Delphi
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Arithmetic.DecodeTime(System.Double,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Выделить час, минуту и секунду из вещественного значения времени формата Delphi
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Arithmetic.DecodeDateTime(System.Double)">
+            <summary>
+            Преобразовать дату и время в формат DateTime из вещественного значения времени формата Delphi
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Arithmetic.EncodeDateTime(System.DateTime)">
+            <summary>
+            Закодировать дату и время в вещественное значение времени формата Delphi
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Arithmetic.ExtractDate(System.String)">
+            <summary>
+            Извлечь дату из имени файла (без директории) таблицы срезов или событий
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseAdapter">
+            <summary>
+            Adapter for reading and writing configuration database tables
+            <para>Адаптер для чтения и записи таблиц базы конфигурации</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.FieldDefSize">
+            <summary>
+            Длина определения поля
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.MaxFieldNameLen">
+            <summary>
+            Максимальная длина имени поля
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.MaxStringLen">
+            <summary>
+            Максимальная длина строкового значения поля
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.directory">
+            <summary>
+            Директория базы конфигурации
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.ioStream">
+            <summary>
+            Входной и выходной поток
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.tableName">
+            <summary>
+            Имя файла таблицы базы конфигурации
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.fileName">
+            <summary>
+            Полное имя файла таблицы базы конфигурации
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.fileMode">
+            <summary>
+            Доступ к данным выполняется через файл на диске
+            </summary>
+        </member>
+        <member name="M:Scada.Data.BaseAdapter.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.BaseAdapter.BytesToObj(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Преобразовать массив байт в значение, тип которого задан dataType
+            </summary>
+        </member>
+        <member name="M:Scada.Data.BaseAdapter.ConvertStr(System.String,System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            Преобразовать строку и записать в массив байт
+            </summary>
+        </member>
+        <member name="M:Scada.Data.BaseAdapter.Fill(System.Data.DataTable,System.Boolean)">
+            <summary>
+            Заполнить таблицу dataTable из файла или потока
+            </summary>
+        </member>
+        <member name="M:Scada.Data.BaseAdapter.Update(System.Data.DataTable)">
+            <summary>
+            Записать таблицу dataTable в файл или поток
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.Directory">
+            <summary>
+            Получить или установить директорию базы конфигурации
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.Stream">
+            <summary>
+            Получить или установить входной и выходной поток (вместо директории)
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.TableName">
+            <summary>
+            Получить или установить имя файла таблицы базы конфигурации
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.FileName">
+            <summary>
+            Получить или установить полное имя файла таблицы базы конфигурации
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseAdapter.FieldDef">
+            <summary>
+            Определение поля таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.FieldDef.Name">
+            <summary>
+            Получить или установить имя поля
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.FieldDef.DataType">
+            <summary>
+            Получить или установить тип данных
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.FieldDef.DataSize">
+            <summary>
+            Получить или установить размер данных
+            </summary>
+        </member>
+        <member name="P:Scada.Data.BaseAdapter.FieldDef.AllowNull">
+            <summary>
+            Получить или установить признак допустимости NULL
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseAdapter.DataTypes">
+            <summary>
+            Типы данных полей таблицы
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.DataTypes.Integer">
+            <summary>
+            Целый
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.DataTypes.Double">
+            <summary>
+            Вещественный
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.DataTypes.Boolean">
+            <summary>
+            Логический
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.DataTypes.DateTime">
+            <summary>
+            Дата и время
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseAdapter.DataTypes.String">
+            <summary>
+            Строковый
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseValues">
+            <summary>
+            The main values from the configuration database
+            <para>Основные значения из базы конфигурации</para>
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseValues.Roles">
+            <summary>
+            Роли пользователей
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.Disabled">
+            <summary>
+            Отключен
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.Admin">
+            <summary>
+            Администратор
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.Dispatcher">
+            <summary>
+            Диспетчер
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.Guest">
+            <summary>
+            Гость
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.App">
+            <summary>
+            Приложение
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.Custom">
+            <summary>
+            Настраиваемая роль
+            </summary>
+            <remarks>Минимальный идентификатор настраиваемой роли равен 0x0B</remarks>
+        </member>
+        <member name="F:Scada.Data.BaseValues.Roles.Err">
+            <summary>
+            Ошибка (неверное имя пользователя или пароль)
+            </summary>
+        </member>
+        <member name="M:Scada.Data.BaseValues.Roles.GetRoleName(System.Int32)">
+            <summary>
+            Получить имя роли по идентификатору
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseValues.CnlTypes">
+            <summary>
+            Типы каналов
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TS">
+            <summary>
+            Телесигнал (ТС)
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TI">
+            <summary>
+            Телеизмерение (ТИ)
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TIDR">
+            <summary>
+            Дорасчётное ТИ
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TIDRM">
+            <summary>
+            Минутное ТИ
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TIDRH">
+            <summary>
+            Часовое ТИ
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.SWCNT">
+            <summary>
+            Количество переключений (дорасчётный)
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TSDR">
+            <summary>
+            Дорасчётный ТС
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TSDRM">
+            <summary>
+            Минутный ТС
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.TSDRH">
+            <summary>
+            Часовой ТС
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.MinCnlTypeID">
+            <summary>
+            Мин. идентификатор типа канала
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CnlTypes.MaxCnlTypeID">
+            <summary>
+            Макс. идентификатор типа канала
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseValues.CmdTypes">
+            <summary>
+            Типы команд
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CmdTypes.Standard">
+            <summary>
+            Стандартная команда (ТУ)
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CmdTypes.Binary">
+            <summary>
+            Бинарная команда
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.CmdTypes.Request">
+            <summary>
+            Внеочередной опрос КП
+            </summary>
+        </member>
+        <member name="T:Scada.Data.BaseValues.ParamStat">
+            <summary>
+            Статусы параметров (типы событий)
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Undefined">
+            <summary>
+            Не определён
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Defined">
+            <summary>
+            Определён
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Archival">
+            <summary>
+            Архивный
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.FormulaError">
+            <summary>
+            Ошибка в формуле
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Changed">
+            <summary>
+            Изменён
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Unreliable">
+            <summary>
+            Недостоверен
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.LowCrash">
+            <summary>
+            Аварийное занижение
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Low">
+            <summary>
+            Занижение
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Normal">
+            <summary>
+            Нормализация
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.High">
+            <summary>
+            Завышение
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.HighCrash">
+            <summary>
+            Аварийное завышение
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.InPermitted">
+            <summary>
+            Вход разрешён
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.OutPermitted">
+            <summary>
+            Выход разрешён
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.AccessDenied">
+            <summary>
+            Доступ запрещён
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.WireBreak">
+            <summary>
+            Повреждение ШС
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Disarm">
+            <summary>
+            Снят с охраны
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Arm">
+            <summary>
+            Поставлен на охрану
+            </summary>
+        </member>
+        <member name="F:Scada.Data.BaseValues.ParamStat.Alarm">
+            <summary>
+            Тревога
+            </summary>
+        </member>
+        <member name="T:Scada.CommonPhrases">
+            <summary>
+            The common phrases used in the system
+            <para>Общие фразы, используемые в системе</para>
+            </summary>
+        </member>
+        <member name="T:Scada.Data.EventAdapter">
+            <summary>
+            Adapter for reading and writing event tables
+            <para>Адаптер для чтения и записи таблиц событий</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.EventDataSize">
+            <summary>
+            Размер данных события в файле
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.MaxDescrLen">
+            <summary>
+            Макс. длина описания события
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.MaxDataLen">
+            <summary>
+            Макс. длина дополнительных данных события
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.directory">
+            <summary>
+            Директория таблицы событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.ioStream">
+            <summary>
+            Входной и выходной поток
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.tableName">
+            <summary>
+            Имя файла таблицы событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.fileName">
+            <summary>
+            Полное имя файла таблицы событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventAdapter.fileMode">
+            <summary>
+            Доступ к данным выполняется через файл на диске
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.BytesToStr(System.Byte[],System.Int32)">
+            <summary>
+            Преобразовать массив байт в строку, 0-й байт - длина строки
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.ConvertToInt(System.Object)">
+            <summary>
+            Преобразовать объект в целое число
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.ConvertToDouble(System.Object)">
+            <summary>
+            Преобразовать объект в вещественное число
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.ConvertToDateTime(System.Object)">
+            <summary>
+            Преобразовать объект в дату и время
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.ConvertToBoolean(System.Object)">
+            <summary>
+            Преобразовать объект в логическое значение
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.CreateEvent(System.Data.DataRowView)">
+            <summary>
+            Создать данные события на основе строки таблицы
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.CreateEventBuffer(Scada.Data.EventTableLight.Event)">
+            <summary>
+            Создать буфер для записи события
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.FillObj(System.Object)">
+            <summary>
+            Заполнить объект dest из файла событий FileName
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.Fill(System.Data.DataTable)">
+            <summary>
+            Заполнить таблицу dataTable из файла или потока
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.Fill(Scada.Data.EventTableLight)">
+            <summary>
+            Заполнить таблицу eventTableLight из файла или потока
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.Update(System.Data.DataTable)">
+            <summary>
+            Записать изменения таблицы dataTable в файл или поток
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.AppendEvent(Scada.Data.EventTableLight.Event)">
+            <summary>
+            Добавить событие в файл или поток
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventAdapter.CheckEvent(System.Int32,System.Int32)">
+            <summary>
+            Квитировать событие в файле или потоке
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventAdapter.Directory">
+            <summary>
+            Получить или установить директорию таблицы событий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventAdapter.Stream">
+            <summary>
+            Получить или установить входной и выходной поток (вместо директории)
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventAdapter.TableName">
+            <summary>
+            Получить или установить имя файла таблицы событий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventAdapter.FileName">
+            <summary>
+            Получить или установить полное имя файла таблицы событий
+            </summary>
+        </member>
+        <member name="T:Scada.Data.EventTableLight">
+            <summary>
+            Event table for fast read data access
+            <para>Таблица событий для быстрого доступа к данным на чтение</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.tableName">
+            <summary>
+            Имя таблицы
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.fileModTime">
+            <summary>
+            Время последнего изменения файла таблицы
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.lastFillTime">
+            <summary>
+            Время последего успешного заполнения таблицы
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.allEvents">
+            <summary>
+            Список всех событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.filteredEvents">
+            <summary>
+            Отфильтрованный список событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.eventsCache">
+            <summary>
+            Сохранённая для повторного доступа часть отфильтрованного списка событий, 
+            начиная с определённого номера события
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.lastEventsCache">
+            <summary>
+            Сохранённая для повторного доступа конечная часть отфильтрованного списка событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.startEvNum">
+            <summary>
+            Начальный номер события, заданный при получении eventsCache
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.lastEvCnt">
+            <summary>
+            Количество запрошенных событий при получении lastEventsCache
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.filters">
+            <summary>
+            Фильтры таблицы событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.objNumFilter">
+            <summary>
+            Номер объекта, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.kpNumFilter">
+            <summary>
+            Номер КП, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.paramNumFilter">
+            <summary>
+            Номер параметра, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.cnlsFilter">
+            <summary>
+            Упорядоченный список каналов, по которым фильтруется таблица
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.EventVisible(Scada.Data.EventTableLight.Event)">
+            <summary>
+            Проверить, что событие является видимым с установленными фильтрами
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.AddEvent(Scada.Data.EventTableLight.Event)">
+            <summary>
+            Добавить событие в таблицу
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.Clear">
+            <summary>
+            Очистить таблицу событий
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.GetEvents(System.Int32)">
+            <summary>
+            Получить часть отфильтрованного списка событий, начиная с заданного номера события
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.GetLastEvents(System.Int32)">
+            <summary>
+            Получить конечную часть отфильтрованного списка событий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.TableName">
+            <summary>
+            Получить или установить имя файла таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.FileModTime">
+            <summary>
+            Получить или установить время последнего изменения файла таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.LastFillTime">
+            <summary>
+            Получить или установить время последего успешного заполнения таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.AllEvents">
+            <summary>
+            Получить список всех событий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.FilteredEvents">
+            <summary>
+            Получить отфильтрованный список событий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Filters">
+            <summary>
+            Получить или установить фильтры таблицы событий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.ObjNumFilter">
+            <summary>
+            Получить или установить номер объекта, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.KPNumFilter">
+            <summary>
+            Получить или установить номер КП, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.ParamNumFilter">
+            <summary>
+            Получить или установить номер параметра, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.CnlsFilter">
+            <summary>
+            Получить или установить список каналов, по которому фильтруется таблица
+            </summary>
+        </member>
+        <member name="T:Scada.Data.EventTableLight.Event">
+            <summary>
+            Данные события
+            </summary>
+        </member>
+        <member name="M:Scada.Data.EventTableLight.Event.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.Number">
+            <summary>
+            Получить или установить порядковый номер события в файле
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.DateTime">
+            <summary>
+            Получить или установить временную метку события
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.ObjNum">
+            <summary>
+            Получить или установить номер объекта
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.KPNum">
+            <summary>
+            Получить или установить номер КП
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.ParamID">
+            <summary>
+            Получить или установить идентификатор параметра
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.CnlNum">
+            <summary>
+            Получить или установить номер входного канала
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.OldCnlVal">
+            <summary>
+            Получить или установить предыдущее значение канала
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.OldCnlStat">
+            <summary>
+            Получить или установить предыдущий статус канала
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.NewCnlVal">
+            <summary>
+            Получить или установить новое значение канала
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.NewCnlStat">
+            <summary>
+            Получить или установить новый статус канала
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.Checked">
+            <summary>
+            Получить или установить признак, что событие квитировано
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.UserID">
+            <summary>
+            Получить или установить идентификатор квитировавшего событие пользователя
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.Descr">
+            <summary>
+            Получить или установить описание события
+            </summary>
+        </member>
+        <member name="P:Scada.Data.EventTableLight.Event.Data">
+            <summary>
+            Получить или установить дополнительные данные события
+            </summary>
+        </member>
+        <member name="T:Scada.Data.EventTableLight.EventFilters">
+            <summary>
+            Фильтры таблицы событий
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.EventFilters.None">
+            <summary>
+            Пустой фильтр
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.EventFilters.Obj">
+            <summary>
+            Фильтр по объекту
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.EventFilters.KP">
+            <summary>
+            Фильтр по КП
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.EventFilters.Param">
+            <summary>
+            Фильтр по параметру
+            </summary>
+        </member>
+        <member name="F:Scada.Data.EventTableLight.EventFilters.Cnls">
+            <summary>
+            Фильтр по каналам
+            </summary>
+        </member>
+        <member name="T:Scada.Localization">
+            <summary>
+            Localization mechanism
+            <para>Механизм локализации</para>
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.#cctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.GetControlInfoDict(Scada.Localization.Dict)">
+            <summary>
+            Получить информацию об элементах управления из словаря
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.TranslateWinControls(System.Collections.IList,System.Windows.Forms.ToolTip,System.Collections.Generic.Dictionary{System.String,Scada.Localization.ControlInfo})">
+            <summary>
+            Рекурсивно перевести элементы управления Windows-формы
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.TranslateWebControls(System.Web.UI.ControlCollection,System.Collections.Generic.Dictionary{System.String,Scada.Localization.ControlInfo})">
+            <summary>
+            Рекурсивно перевести элементы управления веб-формы
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.ReadCulture">
+            <summary>
+            Считать информацию о культуре из реестра
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.CultureIsRussian(System.Globalization.CultureInfo)">
+            <summary>
+            Проверить, что имя культуры соответствует русской культуре
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.WriteCulture(System.String,System.String@)">
+            <summary>
+            Записать информацию о культуре в реестр
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.LoadDictionaries(System.String,System.String,System.String@)">
+            <summary>
+            Загрузить словари для считанной культуры
+            </summary>
+            <remarks>Если ключ загружаемого словаря совпадает с ключом уже загруженного, то словари сливаются.
+            Если совпадают ключи фраз, то новое значение фразы записывается поверх старого</remarks>
+        </member>
+        <member name="M:Scada.Localization.GetDictionaryFileName(System.String,System.String)">
+            <summary>
+            Получить имя файла словаря
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.TranslateForm(System.Windows.Forms.Form,System.String,System.Windows.Forms.ToolTip,System.Windows.Forms.ContextMenuStrip[])">
+            <summary>
+            Перевести форму, используя заданный словарь
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.TranslatePage(System.Web.UI.Page,System.String)">
+            <summary>
+            Перевести веб-страницу, используя заданный словарь
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.ToLocalizedString(System.DateTime)">
+            <summary>
+            Преобразовать дату и время в строку с использованием информации о культуре
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.Culture">
+            <summary>
+            Получить информацию о культуре всех приложений SCADA
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.UseRussian">
+            <summary>
+            Получить признак использования русской локализации
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.Dictionaries">
+            <summary>
+            Получить загруженные словари для локализации
+            </summary>
+        </member>
+        <member name="T:Scada.Localization.Dict">
+            <summary>
+            Словарь
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.Dict.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.Dict.#ctor(System.String)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.Dict.GetPhrase(System.String,System.String)">
+            <summary>
+            Получить фразу из словаря по ключу или значение по умолчанию при её отсутствии
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.Dict.Key">
+            <summary>
+            Получить ключ словаря
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.Dict.Phrases">
+            <summary>
+            Получить фразы, содержащиеся в словаре, по их ключам
+            </summary>
+        </member>
+        <member name="T:Scada.Localization.ControlInfo">
+            <summary>
+            Информация об элементе управления
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.ControlInfo.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Localization.ControlInfo.SetItem(System.Int32,System.String)">
+            <summary>
+            Установить значение элемента списка, инициализировав список при необходимости
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.ControlInfo.Text">
+            <summary>
+            Получить или установить текст
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.ControlInfo.ToolTip">
+            <summary>
+            Получить или установить всплывающую подсказку
+            </summary>
+        </member>
+        <member name="P:Scada.Localization.ControlInfo.Items">
+            <summary>
+            Получить или установить список элементов
+            </summary>
+        </member>
+        <member name="T:Scada.ScadaUtils">
+            <summary>
+            The class contains utility methods for the whole system
+            <para>Класс, содержащий вспомогательные методы для всей системы</para>
+            </summary>
+        </member>
+        <member name="F:Scada.ScadaUtils.LogViewSize">
+            <summary>
+            Размер отображаемых данных журналов, 10 КБ
+            </summary>
+        </member>
+        <member name="F:Scada.ScadaUtils.GridAutoResizeBoundary">
+            <summary>
+            Порог количества строк в таблице для выбора режима автоподбора ширины столбцов
+            </summary>
+        </member>
+        <member name="F:Scada.ScadaUtils.CookieExpiration">
+            <summary>
+            Длительность хранения данных в cookies
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.#cctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.NormalDir(System.String)">
+            <summary>
+            Добавить "\" к имени директории, если необходимо
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.StrIsDate(System.String)">
+            <summary>
+            Определить, является ли заданная строка записью даты, используя Localization.Culture
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.StrToDate(System.String)">
+            <summary>
+            Преобразовать строку в дату, используя Localization.Culture
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.StrToDouble(System.String)">
+            <summary>
+            Преобразовать строку в вещественное число
+            </summary>
+            <remarks>Метод работает с разделителями целой части '.' и ','.
+            Если преобразование невозможно, возвращается double.NaN</remarks>
+        </member>
+        <member name="M:Scada.ScadaUtils.StrToDoubleExc(System.String)">
+            <summary>
+            Преобразовать строку в вещественное число. Метод работает с разделителями целой части '.' и ','
+            </summary>
+            <remarks>Если преобразование невозможно, вызывается исключение FormatException</remarks>
+        </member>
+        <member name="M:Scada.ScadaUtils.ParseDouble(System.String)">
+            <summary>
+            Преобразовать строку в вещественное число. Метод работает с разделителями целой части '.' и ','
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.BytesToHex(System.Byte[])">
+            <summary>
+            Преобразовать массив байт в строку на основе 16-ричного представления
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.HexToBytes(System.String,System.Byte[]@)">
+            <summary>
+            Преобразовать строку 16-ричных чисел в массив байт
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.ComputeHash(System.String)">
+            <summary>
+            Вычислить хеш-функцию MD5
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.DeepClone(System.Object,System.Runtime.Serialization.SerializationBinder)">
+            <summary>
+            Глубокое (полное) клонирование объекта
+            </summary>
+            <remarks>Все клонируемые объекты должны иметь атрибут Serializable</remarks>
+        </member>
+        <member name="M:Scada.ScadaUtils.ShowInfo(System.String)">
+            <summary>
+            Показать информационное сообщение
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.ShowError(System.String)">
+            <summary>
+            Показать сообщение об ошибке
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.ShowWarning(System.String)">
+            <summary>
+            Показать предупреждение
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.SetNumericValue(System.Windows.Forms.NumericUpDown,System.Decimal)">
+            <summary>
+            Установить значение элемента управления типа NumericUpDown в пределах допустимого диапазона
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.AutoResizeColumns(System.Windows.Forms.DataGridView)">
+            <summary>
+            Автоподбор ширины столбцов таблицы с выбором режима в зависимости от количества строк
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.LoadAboutForm(System.String,System.String,System.Windows.Forms.Form,System.Windows.Forms.PictureBox,System.Windows.Forms.Label,System.String@,System.String@)">
+            <summary>
+            Загрузить из файлов изображение и гиперссылку для формы о программе
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.LoadStrings(System.String,System.Boolean)">
+            <summary>
+            Загрузить строки из файла
+            </summary>
+            <remarks>Если fullLoad равен false, то объём загружаемых данных не более LogViewSize</remarks>
+        </member>
+        <member name="M:Scada.ScadaUtils.RefreshListBox(System.Windows.Forms.ListBox,System.String,System.Boolean,System.DateTime@)">
+            <summary>
+            Обновить список строк, загрузив данные из файла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.DisablePageCache(System.Web.HttpResponse)">
+            <summary>
+            Отключить кэширование страницы
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.HtmlEncodeWithBreak(System.String)">
+            <summary>
+            Преобразовать строку для вывода на веб-страницу, заменив "\n" на тег "br"
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.NewXmlNodeFormatException(System.String)">
+            <summary>
+            Создать исключение FormatException для XML-узла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.NewXmlAttrFormatException(System.String)">
+            <summary>
+            Создать исключение FormatException для XML-атрибута
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.XmlValToStr(System.Object)">
+            <summary>
+            Преобразовать значение, предназначенное для записи в XML-файл, в строку
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.XmlParseDouble(System.String)">
+            <summary>
+            Преобразовать строку, считанную из XML-документа, в вещественное число
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.XmlParseDateTime(System.String)">
+            <summary>
+            Преобразовать строку, считанную из XML-документа, в дату и время
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.XmlParseDate(System.String)">
+            <summary>
+            Преобразовать строку, считанную из XML-документа, в дату
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.XmlParseTimeSpan(System.String)">
+            <summary>
+            Преобразовать строку, считанную из XML-документа, в интервал времени
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.AppendElem(System.Xml.XmlElement,System.String,System.Object)">
+            <summary>
+            Создать и добавить XML-элемент
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.AppendParamElem(System.Xml.XmlElement,System.String,System.Object,System.String)">
+            <summary>
+            Создать и добавить XML-элемент параметра
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.AppendParamElem(System.Xml.XmlElement,System.String,System.Object,System.String,System.String)">
+            <summary>
+            Создать и добавить XML-элемент параметра, автоматически выбрав язык описания
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetChildAsString(System.Xml.XmlNode,System.String)">
+            <summary>
+            Получить строковое значение дочернего XML-узла
+            </summary>
+            <remarks>Если XML-узел не существует, вызывается исключение InvalidOperationException</remarks>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetChildAsBool(System.Xml.XmlNode,System.String)">
+            <summary>
+            Получить логическое значение дочернего XML-узла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetChildAsInt(System.Xml.XmlNode,System.String)">
+            <summary>
+            Получить целое значение дочернего XML-узла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetChildAsDouble(System.Xml.XmlNode,System.String)">
+            <summary>
+            Получить вещественное значение дочернего XML-узла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetChildAsDateTime(System.Xml.XmlNode,System.String)">
+            <summary>
+            Получить значение даты и времени дочернего XML-узла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetChildAsTimeSpan(System.Xml.XmlNode,System.String)">
+            <summary>
+            Получить значение интервала времени дочернего XML-узла
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.SetAttribute(System.Xml.XmlElement,System.String,System.Object)">
+            <summary>
+            Установить значение атрибута XML-элемента
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetAttrAsBool(System.Xml.XmlElement,System.String)">
+            <summary>
+            Получить логическое значение атрибута XML-элемента
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetAttrAsInt(System.Xml.XmlElement,System.String)">
+            <summary>
+            Получить целое значение атрибута XML-элемента
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetAttrAsDouble(System.Xml.XmlElement,System.String)">
+            <summary>
+            Получить вещественное значение атрибута XML-элемента
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetAttrAsDateTime(System.Xml.XmlElement,System.String)">
+            <summary>
+            Получить значение даты и времени атрибута XML-элемента
+            </summary>
+        </member>
+        <member name="M:Scada.ScadaUtils.GetAttrAsTimeSpan(System.Xml.XmlElement,System.String)">
+            <summary>
+            Получить значение интервала времени атрибута XML-элемента
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezAdapter">
+            <summary>
+            Adapter for reading and writing data tables
+            <para>Адаптер для чтения и записи таблиц срезов</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezAdapter.EmptyCnlNumsBuf">
+            <summary>
+            Буфер пустого списка номеров каналов в формате сохранения
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezAdapter.directory">
+            <summary>
+            Директория таблицы срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezAdapter.ioStream">
+            <summary>
+            Входной и выходной поток
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezAdapter.tableName">
+            <summary>
+            Имя файла таблицы срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezAdapter.fileName">
+            <summary>
+            Полное имя файла таблицы срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezAdapter.fileMode">
+            <summary>
+            Доступ к данным выполняется через файл на диске
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.ExtractCnlData(System.Byte[],System.Int32@,System.Double@,System.Byte@)">
+            <summary>
+            Извлечь данные входного канала из бинарного буфера
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.GetSrezDescrBuf(Scada.Data.SrezTable.SrezDescr)">
+            <summary>
+            Получить буфер описания структуры среза в формате сохранения
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.GetCnlDataBuf(Scada.Data.SrezTableLight.CnlData[])">
+            <summary>
+            Получить буфер данных среза в формате сохранения
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.FillObj(System.Object)">
+            <summary>
+            Заполнить объект dest из файла срезов FileName
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.Fill(System.Data.DataTable)">
+            <summary>
+            Заполнить таблицу dataTable из файла или потока
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.Fill(Scada.Data.SrezTableLight)">
+            <summary>
+            Заполнить таблицу srezTableLight из файла или потока
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.Fill(Scada.Data.Trend)">
+            <summary>
+            Заполнить тренд trend канала cnlNum из файла или потока
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.Create(Scada.Data.SrezTable.Srez,System.DateTime)">
+            <summary>
+            Создать таблицу, состоящую из одного среза, в файле или потоке
+            </summary>
+            <remarks>Для записи таблицы текущего среза</remarks>
+        </member>
+        <member name="M:Scada.Data.SrezAdapter.Update(Scada.Data.SrezTable)">
+            <summary>
+            Записать изменения таблицы срезов в файл или поток
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezAdapter.Directory">
+            <summary>
+            Получить или установить директорию таблицы срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezAdapter.Stream">
+            <summary>
+            Получить или установить входной и выходной поток (вместо директории)
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezAdapter.TableName">
+            <summary>
+            Получить или установить имя файла таблицы срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezAdapter.FileName">
+            <summary>
+            Получить или установить полное имя файла таблицы срезов
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezTable">
+            <summary>
+            Snapshot table for read and write data access
+            <para>Таблица срезов для доступа к данным на чтение и запись</para>
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezTableLight">
+            <summary>
+            Snapshot table for fast read data access
+            <para>Таблица срезов для быстрого доступа к данным на чтение</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezTableLight.tableName">
+            <summary>
+            Имя таблицы
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezTableLight.fileModTime">
+            <summary>
+            Время последнего изменения файла таблицы
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezTableLight.lastFillTime">
+            <summary>
+            Время последего успешного заполнения таблицы
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.AddSrez(Scada.Data.SrezTableLight.Srez)">
+            <summary>
+            Добавить срез в таблицу
+            </summary>
+            <remarks>Если в таблице уже существует срез с заданной меткой времени, 
+            то добавление нового среза не происходит</remarks>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.GetSrez(System.DateTime)">
+            <summary>
+            Получить срез за определённое время
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.Clear">
+            <summary>
+            Очистить таблицу срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.TableName">
+            <summary>
+            Получить или установить имя файла таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.FileModTime">
+            <summary>
+            Получить или установить время последнего изменения файла таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.LastFillTime">
+            <summary>
+            Получить или установить время последнего успешного заполнения таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.SrezList">
+            <summary>
+            Получить упорядоченный список срезов
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezTableLight.CnlData">
+            <summary>
+            Данные входного канала
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezTableLight.CnlData.Empty">
+            <summary>
+            Пустые данные входного канала
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.CnlData.#ctor(System.Double,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="val">Значение</param>
+            <param name="stat">Статус</param>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.CnlData.Val">
+            <summary>
+            Получить или установить значение
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.CnlData.Stat">
+            <summary>
+            Получить или установить статус
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezTableLight.Srez">
+            <summary>
+            Срез данных входных каналов за определённый момент времени
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.Srez.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.Srez.#ctor(System.DateTime,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="dateTime">Временная метка среза</param>
+            <param name="cnlCnt">Количество входных каналов</param>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.Srez.GetCnlIndex(System.Int32)">
+            <summary>
+            Получить индекс входного канала по номеру
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.Srez.GetCnlData(System.Int32,Scada.Data.SrezTableLight.CnlData@)">
+            <summary>
+            Получить данные входного канала по номеру
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTableLight.Srez.CompareTo(Scada.Data.SrezTableLight.Srez)">
+            <summary>
+            Сравнить текущий объект с другим объектом такого же типа
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.Srez.DateTime">
+            <summary>
+            Получить временную метку среза
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.Srez.CnlNums">
+            <summary>
+            Получить номера каналов среза, упорядоченные по возростанию
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTableLight.Srez.CnlData">
+            <summary>
+            Получить данные среза, соответствующие его номерам каналов
+            </summary>
+        </member>
+        <member name="F:Scada.Data.SrezTable.dataLoading">
+            <summary>
+            Признак выполнения загрузки данных в таблицу срезов
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.AddSrez(Scada.Data.SrezTableLight.Srez)">
+            <summary>
+            Добавить срез в таблицу
+            </summary>
+            <remarks>Если в таблице уже существует срез с заданной меткой времени, 
+            то добавление нового среза не происходит</remarks>
+        </member>
+        <member name="M:Scada.Data.SrezTable.AddSrezCopy(Scada.Data.SrezTable.Srez,System.DateTime)">
+            <summary>
+            Добавить копию среза в таблицу
+            </summary>
+            <remarks>Если в таблице уже существует срез с заданной меткой времени, 
+            то в него копируются данные из исходного среза</remarks>
+        </member>
+        <member name="M:Scada.Data.SrezTable.GetSrez(System.DateTime)">
+            <summary>
+            Получить срез за определённое время
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.BeginLoadData">
+            <summary>
+            Начать загрузку данных в ленту
+            </summary>
+            <remarks>Приостанавливается отслеживание добавления записей в таблицу</remarks>
+        </member>
+        <member name="M:Scada.Data.SrezTable.EndLoadData">
+            <summary>
+            Завершить загрузку данных в ленту
+            </summary>
+            <remarks>Возобновляется отслеживание добавления записей в таблицу</remarks>
+        </member>
+        <member name="M:Scada.Data.SrezTable.AcceptChanges">
+            <summary>
+            Принять изменения таблицы срезов
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.MarkSrezAsAdded(Scada.Data.SrezTable.Srez)">
+            <summary>
+            Отметить срез как добавленный
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.MarkSrezAsModified(Scada.Data.SrezTable.Srez)">
+            <summary>
+            Отметить срез как изменённый
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Clear">
+            <summary>
+            Очистить таблицу срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.Descr">
+            <summary>
+            Получить или установить описание таблицы
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.LastStoredSrez">
+            <summary>
+            Получить последний записанный срез
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.AddedSrezList">
+            <summary>
+            Получить список добавленных срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.ModifiedSrezList">
+            <summary>
+            Получить список изменённых срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.Modified">
+            <summary>
+            Получить признак изменения таблицы срезов
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezTable.SrezDescr">
+            <summary>
+            Описание структуры среза
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.SrezDescr.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.SrezDescr.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.SrezDescr.CalcCS">
+            <summary>
+            Вычислить контрольную сумму
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.SrezDescr.Equals(Scada.Data.SrezTable.SrezDescr)">
+            <summary>
+            Проверить, идентичен ли заданный объект текущему
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.SrezDescr.Equals(System.Int32[])">
+            <summary>
+            Проверить, идентичены ли заданные номера каналов среза текущим
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.SrezDescr.CnlNums">
+            <summary>
+            Получить номера каналов среза, упорядоченные по возростанию
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.SrezDescr.CS">
+            <summary>
+            Контрольная сумма
+            </summary>
+        </member>
+        <member name="T:Scada.Data.SrezTable.Srez">
+            <summary>
+            Срез данных входных каналов за определённый момент времени
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Srez.#ctor(System.DateTime,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Srez.#ctor(System.DateTime,Scada.Data.SrezTable.SrezDescr)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Srez.#ctor(System.DateTime,Scada.Data.SrezTable.SrezDescr,Scada.Data.SrezTableLight.Srez)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Srez.#ctor(System.DateTime,Scada.Data.SrezTable.Srez)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Srez.SetCnlData(System.Int32,Scada.Data.SrezTableLight.CnlData)">
+            <summary>
+            Установить данные входного канала по номеру
+            </summary>
+        </member>
+        <member name="M:Scada.Data.SrezTable.Srez.CopyDataFrom(Scada.Data.SrezTableLight.Srez)">
+            <summary>
+            Копировать данные из исходного среза в текущий
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.Srez.SrezDescr">
+            <summary>
+            Получить описание структуры среза, но основе которого он был создан
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.Srez.State">
+            <summary>
+            Получить или установить текущее состояние среза
+            </summary>
+        </member>
+        <member name="P:Scada.Data.SrezTable.Srez.Position">
+            <summary>
+            Получить или установить позицию временной метки среза в файле или потоке
+            </summary>
+        </member>
+        <member name="T:Scada.Data.Trend">
+            <summary>
+            Trend for fast reading one input channel data
+            <para>Тренд для быстрого чтения данных одного входного канала</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.tableName">
+            <summary>
+            Имя таблицы, к которой относится тренд
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.fileModTime">
+            <summary>
+            Время последнего изменения файла таблицы, к которой относится тренд
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.lastFillTime">
+            <summary>
+            Время последего успешного заполнения тренда
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.points">
+            <summary>
+            Точки тренда
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.cnlNum">
+            <summary>
+            Номер входного канала тренда
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Trend.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Trend.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="cnlNum">номер входного канала тренда</param>
+        </member>
+        <member name="M:Scada.Data.Trend.Sort">
+            <summary>
+            Отсортировать точки тренда по времени
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Trend.Clear">
+            <summary>
+            Очистить тренд
+            </summary>
+        </member>
+        <member name="P:Scada.Data.Trend.TableName">
+            <summary>
+            Получить или установить имя файла таблицы, к которой относится тренд
+            </summary>
+        </member>
+        <member name="P:Scada.Data.Trend.FileModTime">
+            <summary>
+            Получить или установить время последнего изменения файла таблицы, к которой относится тренд
+            </summary>
+        </member>
+        <member name="P:Scada.Data.Trend.LastFillTime">
+            <summary>
+            Получить или установить время последего успешного заполнения тренда
+            </summary>
+        </member>
+        <member name="P:Scada.Data.Trend.Points">
+            <summary>
+            Точки тренда
+            </summary>
+        </member>
+        <member name="P:Scada.Data.Trend.CnlNum">
+            <summary>
+            Номер входного канала тренда
+            </summary>
+        </member>
+        <member name="T:Scada.Data.Trend.Point">
+            <summary>
+            Точка тренда
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Trend.Point.#ctor(System.DateTime,System.Double,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.Point.DateTime">
+            <summary>
+            Временная метка
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.Point.Val">
+            <summary>
+            Значение
+            </summary>
+        </member>
+        <member name="F:Scada.Data.Trend.Point.Stat">
+            <summary>
+            Статус
+            </summary>
+        </member>
+        <member name="M:Scada.Data.Trend.Point.CompareTo(Scada.Data.Trend.Point)">
+            <summary>
+            Сравнить текущий объект с другим объектом такого же типа
+            </summary>
+        </member>
+    </members>
+</doc>

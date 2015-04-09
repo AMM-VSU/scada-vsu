@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<TableView title="Сигнализация: Корпус 1">
+  <Param cnlNum="81">С2000 Корпус 1</Param>
+  <Param />
+  <Param cnlNum="91">Сигнал-20 Адр. 1</Param>
+  <Param cnlNum="92">ШС 1/1</Param>
+  <Param cnlNum="93">ШС 1/2</Param>
+  <Param cnlNum="94">ШС 1/3</Param>
+  <Param cnlNum="95">ШС 1/4</Param>
+  <Param cnlNum="96">ШС 1/5</Param>
+  <Param cnlNum="97">ШС 1/6</Param>
+  <Param cnlNum="98">ШС 1/7</Param>
+  <Param cnlNum="99">ШС 1/8</Param>
+  <Param cnlNum="100">ШС 1/9</Param>
+  <Param cnlNum="101">ШС 1/10</Param>
+  <Param cnlNum="102">ШС 1/11</Param>
+  <Param cnlNum="103">ШС 1/12</Param>
+  <Param cnlNum="104">ШС 1/13</Param>
+  <Param cnlNum="105">ШС 1/14</Param>
+  <Param cnlNum="106">ШС 1/15</Param>
+  <Param cnlNum="107">ШС 1/16</Param>
+  <Param cnlNum="108">ШС 1/17</Param>
+  <Param cnlNum="109">ШС 1/18</Param>
+  <Param cnlNum="110">ШС 1/19</Param>
+  <Param cnlNum="111">ШС 1/20</Param>
+  <Param />
+  <Param cnlNum="121">С2000-4 Адр. 2</Param>
+  <Param cnlNum="122">ШС 1/1 - Дверь</Param>
+  <Param cnlNum="123">ШС 1/2 - Движение</Param>
+  <Param cnlNum="124">ШС 1/3 - Дым</Param>
+</TableView>

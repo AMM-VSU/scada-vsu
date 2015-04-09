@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<TableView title="Сигнализация: Корпус 2">
+  <Param cnlNum="131" hidden="true">С2000 Корпус 2</Param>
+  <Param cnlNum="132">Р1</Param>
+  <Param cnlNum="133">Р2</Param>
+  <Param cnlNum="134">Р3</Param>
+  <Param cnlNum="135">Р4</Param>
+  <Param cnlNum="136">Р5</Param>
+  <Param cnlNum="137">Р6</Param>
+  <Param cnlNum="138">Р7</Param>
+  <Param cnlNum="139">Р8</Param>
+  <Param cnlNum="140">Р9</Param>
+  <Param cnlNum="141">Р10</Param>
+  <Param cnlNum="142">Р11</Param>
+  <Param cnlNum="143">Р12</Param>
+  <Param cnlNum="144">Р13</Param>
+  <Param cnlNum="145">Р14</Param>
+  <Param cnlNum="146">Р15</Param>
+  <Param cnlNum="147">Р16</Param>
+  <Param cnlNum="148">Р17</Param>
+  <Param cnlNum="149">Р18</Param>
+  <Param cnlNum="150">Р19</Param>
+  <Param cnlNum="151">Р20</Param>
+</TableView>

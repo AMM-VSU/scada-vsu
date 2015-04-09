@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<TableView title="Доступ: Проходная">
+  <Param cnlNum="182">Связь Турникет 1</Param>
+  <Param cnlNum="192">Связь Дверь к. 100</Param>
+  <Param hidden="true">
+  </Param>
+  <Param cnlNum="181" hidden="true">Событие Турникет 1</Param>
+  <Param cnlNum="191">Событие Дверь к. 100</Param>
+</TableView>

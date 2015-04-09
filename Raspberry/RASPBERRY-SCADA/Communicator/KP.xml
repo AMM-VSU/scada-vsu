@@ -1,0 +1,1269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KP</name>
+    </assembly>
+    <members>
+        <member name="T:Scada.Comm.KP.KPUtils">
+            <summary>
+            The utilities for device libraries
+            <para>Вспомогательные методы для библиотек КП</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.CmdLifeTime">
+            <summary>
+            Время актуальности команды управления, с
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.MaxCmdFileNum">
+            <summary>
+            Максимальный номер имени файла команды управления
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.cmdFileNum">
+            <summary>
+            Текущий номер имени файла команды управления
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.cmdLock">
+            <summary>
+            Объект для синхронизации записи команд управления
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.WriteDataImpossible">
+            <summary>
+            Сообщение о невозможности отправки данных
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.WriteLineImpossible">
+            <summary>
+            Сообщение о невозможности отправки строк
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.ReadDataImpossible">
+            <summary>
+            Сообщение о невозможности приёма данных
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.ReadLinesImpossible">
+            <summary>
+            Сообщение о невозможности приёма строк
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.SendNotation">
+            <summary>
+            Обозначение отправки данных
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPUtils.ReceiveNotation">
+            <summary>
+            Обозначение приёма данных
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.#cctor">
+            <summary>
+            Статический конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.BytesToHex(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Преобразовать массив байт в строку 16-ричных чисел
+            </summary>
+            <param name="buffer">Массив байт</param>
+            <param name="index">Начальный индекс в массиве байт</param>
+            <param name="length">Длина преобразуемых данных</param>
+            <returns>Строка 16-ричных чисел, разделённых пробелами</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.BytesToHex(System.Byte[])">
+            <summary>
+            Преобразовать массив байт в строку 16-ричных чисел
+            </summary>
+            <param name="buffer">Массив байт</param>
+            <returns>Строка 16-ричных чисел, разделённых пробелами</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.BytesToString(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Преобразовать массив байт в строку
+            </summary>
+            <param name="buffer">Массив байт</param>
+            <param name="index">Начальный индекс в массиве байт</param>
+            <param name="length">Длина преобразуемых данных</param>
+            <param name="skipNonPrinting">Пропустить непечатные символы</param>
+            <returns>Строка, символы которой закодированы в массиве</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.BytesToString(System.Byte[])">
+            <summary>
+            Преобразовать массив байт в строку
+            </summary>
+            <param name="buffer">Массив байт</param>
+            <returns>Строка, символы которой закодированы в массиве</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.AddZeros(System.Int32,System.Int32)">
+            <summary>
+            Добавить при необходимости к числу value нули спереди до достжения длины length
+            </summary>
+            <param name="value">Дополняемое число</param>
+            <param name="length">Длина строки результата</param>
+            <returns>Строковую запись числа с добавленными в начало нулями</returns>
+            
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.WriteToSerialPort(System.IO.Ports.SerialPort,System.Byte[],System.Int32,System.Int32,System.String@)">
+            <summary>
+            Записать данные в последовательный порт
+            </summary>
+            <param name="serialPort">Последовательный порт</param>
+            <param name="buffer">Буфер передаваемых данных</param>
+            <param name="index">Начальный индекс в буфере</param>
+            <param name="count">Количество передаваемых байт</param>
+            <param name="logText">Строка для вывода в журнал</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.WriteLineToSerialPort(System.IO.Ports.SerialPort,System.String,System.String@)">
+            <summary>
+            Записать строку в последовательный порт
+            </summary>
+            <param name="serialPort">Последовательный порт</param>
+            <param name="text">Записываемая в порт строка</param>
+            <param name="logText">Строка для вывода в журнал</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.ReadFromSerialPort(System.IO.Ports.SerialPort,System.Byte[],System.Int32,System.Int32,System.Int32,System.Boolean,System.String@)">
+            <summary>
+            Считать данные из последовательного порта
+            </summary>
+            <param name="serialPort">Последовательный порт</param>
+            <param name="buffer">Буфер принимаемых данных</param>
+            <param name="index">Начальный индекс в буфере</param>
+            <param name="count">Количество принимаемых байт</param>
+            <param name="timeout">Таймаут чтения данных, мс</param>
+            <param name="wait">Ожидать завершения таймаута после окончания чтения</param>
+            <param name="logText">Строка для вывода в журнал</param>
+            <returns>Количество считанных байт</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.ReadFromSerialPort(System.IO.Ports.SerialPort,System.Byte[],System.Int32,System.Int32,System.Byte,System.Int32,System.Boolean,System.String@)">
+            <summary>
+            Считать данные из последовательного порта
+            </summary>
+            <param name="serialPort">Последовательный порт</param>
+            <param name="buffer">Буфер принимаемых данных</param>
+            <param name="index">Начальный индекс в буфере</param>
+            <param name="maxCount">Максимальное количество принимаемых байт</param>
+            <param name="stopCode">Байт, означающий окончание считывания данных</param>
+            <param name="timeout">Таймаут чтения данных, мс</param>
+            <param name="wait">Ожидать завершения таймаута после окончания чтения</param>
+            <param name="logText">Строка для вывода в журнал</param>
+            <returns>Количество считанных байт</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.ReadLinesFromSerialPort(System.IO.Ports.SerialPort,System.Int32,System.Boolean,System.String,System.Boolean@,System.String@)">
+            <summary>
+            Считать строки из последовательного порта
+            </summary>
+            <param name="serialPort">Последовательный порт</param>
+            <param name="timeout">Таймаут чтения данных, мс</param>
+            <param name="wait">Ожидать завершения таймаута после окончания чтения</param>
+            <param name="endLine">Строка, при получении которой завершить приём данных</param>
+            <param name="endFound">Призкак получения завершающей строки</param>
+            <param name="logText">Строка для вывода в журнал</param>
+            <returns>Считанные из последовательного порта строки</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.ReadLinesFromSerialPort(System.IO.Ports.SerialPort,System.Int32,System.Boolean,System.String[],System.Boolean@,System.String@)">
+            <summary>
+            Считать строки из последовательного порта
+            </summary>
+            <param name="serialPort">Последовательный порт</param>
+            <param name="timeout">Таймаут чтения данных, мс</param>
+            <param name="wait">Ожидать завершения таймаута после окончания чтения</param>
+            <param name="endLines">Массив строк, при получении которых завершить приём данных</param>
+            <param name="endFound">Призкак получения завершающей строки</param>
+            <param name="logText">Строка для вывода в журнал</param>
+            <returns>Считанные из последовательного порта строки</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.SaveCmd(System.String,System.String,System.String,System.String[],System.String@)">
+            <summary>
+            Записать команду управления в файл
+            </summary>
+            <param name="cmdDir">Директория команд</param>
+            <param name="sender">Имя приложения, отправившего команду</param>
+            <param name="cmdType">Тип команды</param>
+            <param name="cmdParams">Параметры команды</param>
+            <param name="msg">Сообщение</param>
+            <returns>Успешно ли произведена запись команды</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPUtils.SaveCmd(System.String,System.String,Scada.Comm.KP.KPLogic.Command,System.String@)">
+            <summary>
+            Записать команду управления в файл
+            </summary>
+            <param name="cmdDir">Директория команд</param>
+            <param name="sender">Имя приложения, отправившего команду</param>
+            <param name="cmd">Команда КП</param>
+            <param name="msg">Сообщение</param>
+            <returns>Успешно ли произведена запись команды</returns>
+        </member>
+        <member name="T:Scada.Comm.KP.KPView">
+            <summary>
+            The base class for device library user interface
+            <para>Родительский класс пользовательского интерфейса библиотеки КП</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.defaultCtrlCnlCount">
+            <summary>
+            Количество каналов управления КП по умолчанию
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.#ctor">
+            <summary>
+            Конструктор для общей настройки библиотеки КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.#ctor(System.Int32)">
+            <summary>
+            Конструктор для настройки конкретного КП
+            </summary>
+            <param name="number">Номер настраемого КП</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.ShowProps">
+            <summary>
+            Отобразить свойства КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.KPDescr">
+            <summary>
+            Описание библиотеки КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.Number">
+            <summary>
+            Получить номер КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.ConfigDir">
+            <summary>
+            Получить или установить директорию конфигурации программы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.LangDir">
+            <summary>
+            Получить или установить директорию языковых файлов
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CmdDir">
+            <summary>
+            Получить или установить директорию команд
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CanShowProps">
+            <summary>
+            Получить возможность отображения свойств КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.DefaultCnls">
+            <summary>
+            Получить список входных каналов КП по умолчанию, 
+            а также привязанных к ним каналов управления (зависит только от библиотеки КП, не зависит от его номера)
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.DefaultReqParams">
+            <summary>
+            Получить параметры опроса КП по умолчанию
+            </summary>
+            <remarks>Не должны зависеть от номера КП</remarks>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.DefaultCtrlCnlCount">
+            <summary>
+            Получить количество каналов управления КП по умолчанию
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPView.CnlType">
+            <summary>
+            Типы входных каналов
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TS">
+            <summary>
+            Телесигнал
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TI">
+            <summary>
+            Телеизмерение
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TIDR">
+            <summary>
+            Дорасчётный ТИ
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TIDRM">
+            <summary>
+            Минутный ТИ
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TIDRH">
+            <summary>
+            Часовой ТИ
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.SWCNT">
+            <summary>
+            Количество переключений
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TSDR">
+            <summary>
+            Дорасчетный ТС
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TSDRM">
+            <summary>
+            Минутный ТС
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPView.CnlType.TSDRH">
+            <summary>
+            Часовой ТС
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPView.InCnlProps">
+            <summary>
+            Свойства входного канала, необходимого для работы КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.InCnlProps.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.InCnlProps.#ctor(System.String,Scada.Comm.KP.KPView.CnlType)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="name">Наименование входного канала</param>
+            <param name="cnlType">Тип входного канала</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.Name">
+            <summary>
+            Получить или установить наименование входного канала
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.CnlType">
+            <summary>
+            Получить или установить тип входного канала
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.Signal">
+            <summary>
+            Получить или установить сигнал (номер параметра КП)
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.FormulaUsed">
+            <summary>
+            Получить или установить признак использования формулы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.Formula">
+            <summary>
+            Получить или установить формулу
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.Averaging">
+            <summary>
+            Получить или установить признак усреднения
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.ParamName">
+            <summary>
+            Получить или установить наименование параметра
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.ShowNumber">
+            <summary>
+            Получить или установить признак числового формата вывода значения канала
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.DecDigits">
+            <summary>
+            Получить или установить количество знаков дробной части формата вывода значения канала
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.UnitName">
+            <summary>
+            Получить или установить наименование размерности
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.CtrlCnlProps">
+            <summary>
+            Получить или установить свойства канала управления, привязанного к входному каналу
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.EvEnabled">
+            <summary>
+            Получить или установить признак записи событий
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.EvSound">
+            <summary>
+            Получить или установить признак звука события
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.EvOnChange">
+            <summary>
+            Получить или установить признак события по изменению
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.EvOnUndef">
+            <summary>
+            Получить или установить признак события по неопределённому состоянию
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.LimLowCrash">
+            <summary>
+            Получить или установить нижнюю аварийную границу
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.LimLow">
+            <summary>
+            Получить или установить нижнюю границу
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.LimHigh">
+            <summary>
+            Получить или установить верхнюю границу
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.InCnlProps.LimHighCrash">
+            <summary>
+            Получить или установить верхнюю аварийную границу
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPView.CtrlCnlProps">
+            <summary>
+            Свойства канала управления, необходимого для работы КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.CtrlCnlProps.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPView.CtrlCnlProps.#ctor(System.String,Scada.Comm.KP.KPLogic.CmdType)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="name">Наименование канала управления</param>
+            <param name="cmdType">Тип команды</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.Name">
+            <summary>
+            Получить или установить наименование канала управления
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.CmdType">
+            <summary>
+            Получить или установить тип команды
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.CmdNum">
+            <summary>
+            Получить или установить номер команды
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.CmdValName">
+            <summary>
+            Получить или установить наименование значений команды
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.FormulaUsed">
+            <summary>
+            Получить или установить признак использования формулы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.Formula">
+            <summary>
+            Получить или установить формулу
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPView.CtrlCnlProps.EvEnabled">
+            <summary>
+            Получить или установить признак записи событий
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic">
+            <summary>
+            The base class for device communication logic
+            <para>Родительский класс логики взаимодействия с КП</para>
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.SrezBufSize">
+            <summary>
+            Размер кольцевого буфера архивных срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.EventBufSize">
+            <summary>
+            Размер кольцевого буфера событий
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.DateTimeFormat">
+            <summary>
+            Формат даты и времени для вывода в журнал линии связи
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.kpStats">
+            <summary>
+            Статистика работы КП
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.lastCommSucc">
+            <summary>
+            Последний сеанс связи завершён успешно
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.commErrRepeat">
+            <summary>
+            Количество неудачных сеансов связи подряд (опрос или команда ТУ)
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.srezBufList">
+            <summary>
+            Кольцевой буфер архивных срезов
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.eventBufList">
+            <summary>
+            Кольцевой буфер событий
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.terminated">
+            <summary>
+            Признак завершения работы линии связи
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="number">Номер КП</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.GetMaxLength(System.String[])">
+            <summary>
+            Получить максимальную длину строки в массиве
+            </summary>
+            <param name="strings">Массив строк</param>
+            <returns>Максимальная длина строки в массиве</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.AppendKPParams(System.Text.StringBuilder)">
+            <summary>
+            Добавить к конструктору строки текущие значения параметров КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.AppendSrezBufList(System.Text.StringBuilder)">
+            <summary>
+            Добавить к конструктору строки архивные срезы КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.AppendEventBufList(System.Text.StringBuilder)">
+            <summary>
+            Добавить к конструктору строки события КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.InitArrays(System.Int32,System.Int32)">
+            <summary>
+            Инициализировать массивы параметров КП, групп параметров КП, текущих данных и признаков их изменения
+            </summary>
+            <param name="paramCnt">Количество параметров КП</param>
+            <param name="groupCnt">Количество групп параметров КП</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.CopyParamsFromGroups">
+            <summary>
+            Копировать параметры КП из групп в массив параметров
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.SetParamData(System.Int32,System.Double,System.Int32)">
+            <summary>
+            Установить текущие данные параметра КП и признак их изменения
+            </summary>
+            <param name="paramIndex">Индекс параметра КП</param>
+            <param name="newVal">Новое значение параметра КП</param>
+            <param name="newStat">Новый статус параметра КП</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.SetParamData(System.Int32,Scada.Comm.KP.KPLogic.ParamData)">
+            <summary>
+            Установить текущие данные параметра КП и признак их изменения
+            </summary>
+            <param name="paramIndex">Индекс параметра КП</param>
+            <param name="newData">Новые данные параметра КП</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.GetCmdLineArgs">
+            <summary>
+            Получить массив аргументов командной строки
+            </summary>
+            <returns>Массив аргументов командной строки</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.FinishRequest">
+            <summary>
+            Выполнить действия, необходимые для завершения запроса
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.CalcSessStats">
+            <summary>
+            Рассчитать статистику сеансов опроса и состояние работы КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.CalcCmdStats">
+            <summary>
+            Рассчитать статистику команд ТУ и состояние работы КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Session">
+            <summary>
+            Выполнить сеанс опроса КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.SendCmd(Scada.Comm.KP.KPLogic.Command)">
+            <summary>
+            Отправить команду ТУ
+            </summary>
+            <param name="cmd">Команда ТУ</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.OnAddedToCommLine">
+            <summary>
+            Выполнить действия после добавления КП на линию связи
+            </summary>
+            <remarks>Метод вызывается после установки необходимых для работы КП свойств, 
+            перед привязкой параметров КП к входным каналам</remarks>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.OnCommLineStart">
+            <summary>
+            Выполнить действия при запуске линии связи
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.OnCommLineTerminate">
+            <summary>
+            Выполнить действия при завершении работы линии связи
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.OnCommLineAbort">
+            <summary>
+            Выполнить действия при прерывании работы линии связи
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.BindParam(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Привязать параметр КП к входному каналу из базы конфигурации
+            </summary>
+            <param name="signal">Сигнал (номер параметра КП), нумерация от 1</param>
+            <param name="cnlNum">Номер входного канала</param>
+            <param name="objNum">Номер объекта</param>
+            <param name="paramID">Идентификатор параметра</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamDataToStr(System.Int32,Scada.Comm.KP.KPLogic.ParamData)">
+            <summary>
+            Преобразовать данные параметра КП в строку
+            </summary>
+            <param name="signal">Сигнал (номер параметра КП)</param>
+            <param name="paramData">Данные параметра КП</param>
+            <returns>Строковое представление данных параметра КП</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.GetInfo">
+            <summary>
+            Получить информацию о работе КП
+            </summary>
+            <returns>Информация о работе КП</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.GetModifiedParamIndexes">
+            <summary>
+            Получить массив индексов параметров КП, привязанных к входным каналам, текущие данные которых изменились
+            </summary>
+            <returns>Массив индексов параметров КП</returns>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.FlushKPArc">
+            <summary>
+            Форсировано передать архивы срезов и событий данного КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.CopyArcToBuf">
+            <summary>
+            Копировать архивы срезов и события в буферы для последующей записи в файл информации о работе КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.CopySrezToBuf(System.Int32)">
+            <summary>
+            Копировать архивный срез в буфер для последующей записи в файл информации о работе КП
+            </summary>
+            <param name="srezIndex">Индекс копируемого архивного среза</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.CopyEventToBuf(System.Int32)">
+            <summary>
+            Копировать событие в буфер для последующей записи в файл информации о работе КП
+            </summary>
+            <param name="eventIndex">Индекс копируемого события</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Terminated">
+            <summary>
+            Получить или установить признак завершения работы линии связи
+            </summary>
+            <remarks>Если значение равно true, то необходимо прервать сеанс опроса или отправку команды КП. 
+            Установка значения в false во время сеанса опроса приостанавливает завершение работы линии связи</remarks>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CanSendCmd">
+            <summary>
+            Получить возможность отправки команд ТУ
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Bind">
+            <summary>
+            Получить или установить привязку к базе конфигурации
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Number">
+            <summary>
+            Получить номер КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Name">
+            <summary>
+            Получить или установить наименование КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Caption">
+            <summary>
+            Получить обозначение КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Dll">
+            <summary>
+            Получить наименование библиотеки КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Address">
+            <summary>
+            Получить или установить адрес КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CallNum">
+            <summary>
+            Получить или установить позывной (строковый адрес) КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.KPReqParams">
+            <summary>
+            Получить или установить параметры опроса КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.SerialPort">
+            <summary>
+            Получить или установить ссылку на последовательный порт
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CommLineParams">
+            <summary>
+            Получить или установить параметры линии связи
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.UserParams">
+            <summary>
+            Получить или установить ссылку на пользовательские параметры линии связи
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CommonProps">
+            <summary>
+            Получить или установить ссылку на общие свойства линии связи, доступные относящимся к ней КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.KPStats">
+            <summary>
+            Получить статистику работы КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.WorkState">
+            <summary>
+            Получить состояние работы КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.WorkStateStr">
+            <summary>
+            Получить строковое представление состояния работы КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.LastSessDT">
+            <summary>
+            Получить дату и время последнего сеанса опроса
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.LastCmdDT">
+            <summary>
+            Получить дату и время последней отправки команды ТУ
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.KPParams">
+            <summary>
+            Получить параметры КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamGroups">
+            <summary>
+            Получить группы параметров КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CurData">
+            <summary>
+            Получить текущие данные параметров
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CurModified">
+            <summary>
+            Получить признаки изменения текущих данных параметров
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.SrezList">
+            <summary>
+            Получить список архивных срезов
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.EventList">
+            <summary>
+            Получить список событий
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ConfigDir">
+            <summary>
+            Получить или установить директорию конфигурации программы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.LangDir">
+            <summary>
+            Получить или установить директорию языковых файлов
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.LogDir">
+            <summary>
+            Получить или установить директория файлов журналов программы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.CmdDir">
+            <summary>
+            Получить или установить директорию команд
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.FlushArc">
+            <summary>
+            Получить или установить метод форсированной передачи архивов срезов и событий
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.WriteToLog">
+            <summary>
+            Получить или установить метод записи в журнал линии связи
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.PassCmd">
+            <summary>
+            Получить или установить метод передачи команды КП
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.ReqParams">
+            <summary>
+            Параметры опроса КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ReqParams.#ctor(System.Boolean)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="isEmpty">Признак, определяющий, что параметры опроса не заданы</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ReqParams.IsEmpty">
+            <summary>
+            Получить или установить признак, определяющий, что параметры опроса не заданы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ReqParams.Timeout">
+            <summary>
+            Получить или установить таймаут запросов, мс
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ReqParams.Delay">
+            <summary>
+            Получить или установить задержку после запросов, мс
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ReqParams.Time">
+            <summary>
+            Получить или установить время опроса
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ReqParams.Period">
+            <summary>
+            Получить или установить период опроса, начиная с времени опроса
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ReqParams.CmdLine">
+            <summary>
+            Получить или установить командную строку
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.LineParams">
+            <summary>
+            Параметры линии связи
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.LineParams.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="triesCnt">Количество попыток перезапроса при ошибке</param>
+            <param name="maxCommErrCnt">Количество неудачных сеансов связи подряд до объявления КП неработающим</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.LineParams.TriesCnt">
+            <summary>
+            Получить или установить количество попыток перезапроса при ошибке
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.LineParams.MaxCommErrCnt">
+            <summary>
+            Получить или установить количество неудачных сеансов связи подряд до объявления КП неработающим
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.Stats">
+            <summary>
+            Статистика работы КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Stats.SessCnt">
+            <summary>
+            Получить или установить количество сеансов опроса
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Stats.SessErrCnt">
+            <summary>
+            Получить или установить количество неудачных сеансов опроса
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Stats.CmdCnt">
+            <summary>
+            Получить или установить количество команд ТУ
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Stats.CmdErrCnt">
+            <summary>
+            Получить или установить количество неудачных команд ТУ
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Stats.ReqCnt">
+            <summary>
+            Получить или установить количество запросов
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Stats.ReqErrCnt">
+            <summary>
+            Получить или установить количество неудачных запросов
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.ParamData">
+            <summary>
+            Данные параметра КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamData.#ctor(System.Double,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="val">Значение</param>
+            <param name="stat">Статус</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamData.Val">
+            <summary>
+            Получить или установить значение
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamData.Stat">
+            <summary>
+            Получить или установить статус
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.Param">
+            <summary>
+            Параметр КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Param.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Param.#ctor(System.Int32,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="signal">Сигнал (номер параметра КП)</param>
+            <param name="name">Наименование параметра</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Param.Signal">
+            <summary>
+            Получить или установить сигнал (номер параметра КП)
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Param.Name">
+            <summary>
+            Получить или установить наименование параметра
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Param.CnlNum">
+            <summary>
+            Получить или установить номер входного канала из базы конфигурации, привязанного к параметру
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Param.ObjNum">
+            <summary>
+            Получить или установить номер объекта из базы конфигурации
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Param.ParamID">
+            <summary>
+            Получить или установить идентификатор параметра из базы конфигурации
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.ParamSrez">
+            <summary>
+            Архивный срез параметров
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamSrez.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamSrez.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="paramCnt">Количество параметров в срезе</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamSrez.GetBindedParamIndexes">
+            <summary>
+            Получить массив индексов параметров среза, привязанных к входным каналам
+            </summary>
+            <returns>Массив индексов параметров среза</returns>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamSrez.DateTime">
+            <summary>
+            Получить или установить временную метку
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamSrez.KPParams">
+            <summary>
+            Получить ссылки на параметры КП, входящие в срез
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamSrez.Data">
+            <summary>
+            Получить данные параметров среза
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamSrez.Descr">
+            <summary>
+            Получить или установить описание среза (записывается в файл информации о работе КП)
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.ParamGroup">
+            <summary>
+            Группа параметров КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamGroup.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamGroup.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="paramCnt">Количество параметров в группе</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.ParamGroup.#ctor(System.String,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="name">Наименование группы</param>
+            <param name="paramCnt">Количество параметров в группе</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamGroup.Name">
+            <summary>
+            Получить или установить наименование группы
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.ParamGroup.KPParams">
+            <summary>
+            Получить ссылки на параметры КП, входящие в группу
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.Event">
+            <summary>
+            Событие
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Event.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Event.#ctor(System.DateTime,System.Int32,Scada.Comm.KP.KPLogic.Param)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="dateTime">Временная метка события</param>
+            <param name="kpNum">Номер КП из базы конфигурации</param>
+            <param name="kpParam">Параметр КП</param>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.DateTime">
+            <summary>
+            Получить или установить временную метку
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.KPNum">
+            <summary>
+            Получить или установить номер КП из базы конфигурации
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.KPParam">
+            <summary>
+            Получить или установить ссылку на параметр КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.OldData">
+            <summary>
+            Получить или установить старые данные параметра КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.NewData">
+            <summary>
+            Получить или установить новые данные параметра КП
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.Checked">
+            <summary>
+            Получить или установить признак квитирования события
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.UserID">
+            <summary>
+            Получить или установить идентификатор пользователя из базы конфигурации, квитировавшего событие
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.Descr">
+            <summary>
+            Получить или установить описание события
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Event.Data">
+            <summary>
+            Получить или установить дополнительные данные события
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.CmdType">
+            <summary>
+            Тип команды КП
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.CmdType.Standard">
+            <summary>
+            Стандартная команда (ТУ)
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.CmdType.Binary">
+            <summary>
+            Бинарная команда
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.CmdType.Request">
+            <summary>
+            Внеочередной опрос КП
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.Command">
+            <summary>
+            Команда КП
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Command.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Command.#ctor(Scada.Comm.KP.KPLogic.CmdType)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="cmdType">Тип команды</param>
+        </member>
+        <member name="M:Scada.Comm.KP.KPLogic.Command.GetCmdDataStr">
+            <summary>
+            Получить данные команды, преобразованные в строку
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Command.CmdType">
+            <summary>
+            Получить или установить тип команды
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Command.KPNum">
+            <summary>
+            Получить или установить номер КП, для которого предназначена команда
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Command.CmdNum">
+            <summary>
+            Получить или установить номер команды
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Command.CmdVal">
+            <summary>
+            Получить или установить значение команды
+            </summary>
+        </member>
+        <member name="P:Scada.Comm.KP.KPLogic.Command.CmdData">
+            <summary>
+            Получить или установить бинарные данные команды (вместо значения)
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.WorkStates">
+            <summary>
+            Состояния работы КП
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.WorkStates.Undefined">
+            <summary>
+            Неопределено
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.WorkStates.Normal">
+            <summary>
+            Норма
+            </summary>
+        </member>
+        <member name="F:Scada.Comm.KP.KPLogic.WorkStates.Error">
+            <summary>
+            Ошибка
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.FlushArcDelegate">
+            <summary>
+            Делегат форсированной передачи архивов срезов и событий 
+            во время сеанса опроса или отправки команды ТУ
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.WriteToLogDelegate">
+            <summary>
+            Делегат записи в журнал линии связи
+            </summary>
+        </member>
+        <member name="T:Scada.Comm.KP.KPLogic.PassCmdDelegate">
+            <summary>
+            Делегат передачи команды КП
+            </summary>
+        </member>
+    </members>
+</doc>
