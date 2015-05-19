@@ -1,21 +1,21 @@
 #This script was modified and adapted for Rapid SCADA by NikitaYakuntsev.
 
 SERVICE_NAME=ScadaComm
-PATH_TO_EXE=/home/pi/RASPBERRY-SCADA/Communicator
+EXE_DIR=/home/pi/RASPBERRY-SCADA/Communicator
 EXEC_NAME=ScadaCommSvc.exe
-STOP_FILE_NAME=../SysFiles/COMM.STOP
-PID_PATH_NAME=/tmp/scadacomm
+STOP_FILE_PATH=../SysFiles/COMM.STOP
+PID_FILE_PATH=/tmp/scadacomm
 
 MAX_DELAY=12
 
 do_start()
 {
-	if [ ! -f $PID_PATH_NAME ]; then
-            cd $PATH_TO_EXE
+	if [ ! -f $PID_FILE_PATH ]; then
+            cd $EXE_DIR
 	    export MONO_IOMAP=all
-            mono $EXEC_NAME & echo $! > $PID_PATH_NAME
-	    if [ -f $STOP_FILE_NAME ]; then
-                rm  $STOP_FILE_NAME
+            mono $EXEC_NAME & echo $! > $PID_FILE_PATH
+	    if [ -f $STOP_FILE_PATH ]; then
+                rm  $STOP_FILE_PATH
             fi
 
             echo "$SERVICE_NAME started ..."
@@ -26,21 +26,21 @@ do_start()
 
 do_stop()
 {
-        if [ -f $PID_PATH_NAME ]; then
-            PID=$(cat $PID_PATH_NAME);
+        if [ -f $PID_FILE_PATH ]; then
+            PID=$(cat $PID_FILE_PATH);
             echo "$SERVICE_NAME stoping ..."
-            cd $PATH_TO_EXE
-            touch $STOP_FILE_NAME
+            cd $EXE_DIR
+            touch $STOP_FILE_PATH
             for (( i = 0; i < MAX_DELAY; i++ )) do
 	        sleep 1
-                if [ ! -f $STOP_FILE_NAME ]; then
+                if [ ! -f $STOP_FILE_PATH ]; then
                     break;
                 fi
 	    done
 
             kill $PID;
             echo "$SERVICE_NAME stopped ..."
-            rm $PID_PATH_NAME
+            rm $PID_FILE_PATH
 
         else
             echo "$SERVICE_NAME is not running ..."
