@@ -4,16 +4,16 @@ SERVICE_NAME=ScadaServer
 EXE_DIR=/home/pi/RASPBERRY-SCADA/Server/
 EXEC_NAME=ScadaServerSvc.exe
 STOP_FILE_PATH=../SysFiles/SRV.STOP
-PID_FILE_NAME=/tmp/scadasrv
+PID_FILE_PATH=/tmp/scadasrv
 
 MAX_DELAY=12
 
 do_start()
 {
-	if [ ! -f $PID_FILE_NAME ]; then
+	if [ ! -f $PID_FILE_PATH ]; then
             cd $EXE_DIR
 	    export MONO_IOMAP=all
-            mono $EXEC_NAME & echo $! > $PID_FILE_NAME
+            mono $EXEC_NAME & echo $! > $PID_FILE_PATH
 	    if [ -f $STOP_FILE_PATH ]; then
                 rm  $STOP_FILE_PATH
             fi
@@ -26,8 +26,8 @@ do_start()
 
 do_stop()
 {
-        if [ -f $PID_FILE_NAME ]; then
-            PID=$(cat $PID_FILE_NAME);
+        if [ -f $PID_FILE_PATH ]; then
+            PID=$(cat $PID_FILE_PATH);
             echo "$SERVICE_NAME stoping ..."
             cd $EXE_DIR
             touch $STOP_FILE_PATH
@@ -40,7 +40,7 @@ do_stop()
 
             kill $PID;
             echo "$SERVICE_NAME stopped ..."
-            rm $PID_FILE_NAME
+            rm $PID_FILE_PATH
 
         else
             echo "$SERVICE_NAME is not running ..."
