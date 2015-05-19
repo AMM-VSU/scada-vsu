@@ -1,0 +1,59 @@
+SERVICE_NAME=ScadaComm
+PATH_TO_EXE=/home/pi/RASPBERRY-SCADA/Communicator
+EXEC_NAME=ScadaCommSvc.exe
+FILE=../SysFiles/COMM.STOP
+PID_PATH_NAME=/tmp/scadacomm
+
+do_start()
+{
+	if [ ! -f $PID_PATH_NAME ]; then
+            cd $PATH_TO_EXE
+	    export MONO_IOMAP=all
+            mono $EXEC_NAME & echo $! > $PID_PATH_NAME
+	    if [ -f $FILE ]; then
+                rm  $FILE
+            fi
+
+            echo "$SERVICE_NAME started ..."
+        else
+            echo "$SERVICE_NAME is already running ..."
+        fi
+}
+
+do_stop()
+{
+        if [ -f $PID_PATH_NAME ]; then
+            PID=$(cat $PID_PATH_NAME);
+            echo "$SERVICE_NAME stoping ..."
+            cd $PATH_TO_EXE
+            touch $FILE
+            for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
+	        sleep 1
+                if [ ! -f $FILE ]; then
+                    break;
+                fi
+	    done
+
+            kill $PID;
+            echo "$SERVICE_NAME stopped ..."
+            rm $PID_PATH_NAME
+
+        else
+            echo "$SERVICE_NAME is not running ..."
+        fi
+}
+
+case $1 in
+    start)
+        echo "Starting $SERVICE_NAME ..."
+        do_start
+      
+    ;;
+    stop)
+        do_stop
+    ;;
+    restart)
+        do_stop
+        do_start
+    ;;
+esac 

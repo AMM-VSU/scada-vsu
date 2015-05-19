@@ -1,0 +1,2 @@
+sudo update-rc.d test_script defaults 97 03
+sudo update-rc.d -f test_script  remove

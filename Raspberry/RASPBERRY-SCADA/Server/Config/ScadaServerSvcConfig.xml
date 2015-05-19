@@ -8,11 +8,11 @@
     <Param name="DetailedLog" value="false" descr="Записывать в журнал приложения подробную информацию" />
   </CommonParams>
   <!--Директории-->
-  <Directories>
-    <Param name="BaseDATDir" value="..\BaseDAT\" descr="Директория базы конфигурации в формате DAT" />
-    <Param name="ItfDir" value="..\Interface\" descr="Директория интерфейса" />
-    <Param name="ArcDir" value="..\ArchiveDAT\" descr="Директория архива в формате DAT" />
-    <Param name="ArcCopyDir" value="..\ArchiveDATCopy\" descr="Директория копии архива в формате DAT" />
+<Directories>
+    <Param name="BaseDATDir" value="..\BaseDAT\" descr="The configuration database in DAT format directory" />
+    <Param name="ItfDir" value="..\Interface\" descr="The interface directory" />
+    <Param name="ArcDir" value="..\ArchiveDAT\" descr="The archive in DAT format directory" />
+    <Param name="ArcCopyDir" value="..\ArchiveDATCopy\" descr="The archive copy in DAT format directory" />
   </Directories>
   <!--Параметры записи-->
   <SaveParams>
@@ -33,5 +33,7 @@
     <Param name="WriteEvCopy" value="true" descr="Записывать копии событий" />
   </SaveParams>
   <!--Модули-->
-  <Modules />
+  <Modules>
+    <Module fileName="ModDbManager.dll" />
+  </Modules>
 </ScadaServerSvcConfig>
