@@ -1,4 +1,4 @@
-Необходимо добавить файлы scadasrv, scadacomm в /etc/init.d и СДЕЛАТЬ их исполнительными: команда sudo chmod +x filename
+Необходимо добавить файлы scadasrv, scadacomm в /etc/init.d
 Далее для регистрации демонов необходимо выполнить следующие команды: 
 
 sudo update-rc.d scadasrv defaults 97 03    
@@ -15,6 +15,3 @@ sudo service scadacomm stop - остановка
 sudo service scadacomm restart - перезапуск
 
 sudo update-rc.d -f test_script  remove - отмена регистрации демона с именем test_script
-
-
-Для скрипта restart.sh перед первым запуском его необходимо сделать исполнимым, для этого нужно выполнить команду sudo chmod +x restart.sh. Запускать скрипт ./restart.sh
