@@ -1,3 +1,5 @@
+#This script was modified and adapted for Rapid SCADA by NikitaYakuntsev.
+
 SERVICE_NAME=ScadaServer
 PATH_TO_EXE=/home/pi/RASPBERRY-SCADA/Server/
 EXEC_NAME=ScadaServerSvc.exe
