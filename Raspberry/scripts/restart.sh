@@ -1,4 +1,6 @@
 #!/bin/bash
 echo "Restarting SCADA..."
-sudo service scadasrv restart
-sudo service scadacomm restart
+sudo service scadacomm stop
+sudo service scadasrv stop
+sudo service scadasrv start
+sudo service scadacomm start
