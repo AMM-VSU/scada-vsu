@@ -6,7 +6,7 @@ EXEC_NAME=ScadaCommSvc.exe
 STOP_FILE_NAME=../SysFiles/COMM.STOP
 PID_PATH_NAME=/tmp/scadacomm
 
-MAX_DELAY = 12
+MAX_DELAY=12
 
 do_start()
 {
