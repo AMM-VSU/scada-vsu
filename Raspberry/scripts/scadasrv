@@ -4,6 +4,8 @@ EXEC_NAME=ScadaServerSvc.exe
 STOP_FILE_NAME=../SysFiles/SRV.STOP
 PID_PATH_NAME=/tmp/scadasrv
 
+MAX_DELAY = 12
+
 do_start()
 {
 	if [ ! -f $PID_PATH_NAME ]; then
@@ -27,7 +29,7 @@ do_stop()
             echo "$SERVICE_NAME stoping ..."
             cd $PATH_TO_EXE
             touch $STOP_FILE_NAME
-            for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            for (( i = 0; i < MAX_DELAY; i++ )) do
 	        sleep 1
                 if [ ! -f $STOP_FILE_NAME ]; then
                     break;
