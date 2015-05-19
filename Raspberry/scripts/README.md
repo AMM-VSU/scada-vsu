@@ -4,6 +4,8 @@
 sudo update-rc.d scadasrv defaults 97 03    
 sudo update-rc.d scadacomm defaults 98 02
 
+Или просто sudo update-rc.d scadasrv defaults (как здесь)[http://www.neil-black.co.uk/raspberry-pi-beginners-guide#.VVru5_ntlBc]
+
 Числа 97, 98 отвечают за порядок запуска при включении, 03 и 02 за порядок остановки при выключении системы.
 
 sudo service scadacomm start - запуск демона с именем scadacomm
