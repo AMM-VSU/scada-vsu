@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<CommSettings>
-  <Param name="ServerHost" value="localhost" descr="Имя компьютера или IP-адрес SCADA-Сервера" />
-  <Param name="ServerPort" value="10000" descr="Номер TCP-порта SCADA-Сервера" />
-  <Param name="ServerUser" value="ScadaServerCtrl" descr="Имя пользователя для подключения" />
-  <Param name="ServerPwd" value="12345" descr="Пароль пользователя для подключения" />
-  <Param name="ServerTimeout" value="10000" descr="Таймаут ожидания ответа, мс" />
-</CommSettings>
